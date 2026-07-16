@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Env / secrets
+.env
+.env.*
+
+# Build artifacts (bundles are built, not committed)
+bundle/*.db
+bundle/*.pmtiles
+dist/
+
+# Eval outputs and LLM response cache
+evals/runs/
+evals/.llm_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Claude Code local settings
+.claude/settings.local.json
