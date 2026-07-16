@@ -5,6 +5,34 @@ is the complete context. Read it fully before proposing anything. From here on,
 planning happens with you, so maintain and update this file as decisions are
 made. Save it as CLAUDE.md in the repo root.
 
+## Status (last updated 2026-07-16)
+
+Stage 0, pre-code. Repo live at github.com/karishmadhingra30/emergency_california
+(SSH). Rubric + 13 gold rows saved in evals/ (rest of rows pending from
+Karishma). No Track A code yet.
+
+Decisions confirmed so far:
+- Repo layout: zone-based — device/ (emergency-time, zero network),
+  backend/ (calm-time bundle builder + content), sync/ (boundary contract),
+  evals/ (Track B, dev-time only). Concrete tree pending final confirmation.
+- First-aid content: one JSON file per entry, in backend/content/first_aid/.
+  Entry IDs must match the gold set's expected_entry_id values
+  (fa_bleeding_control, fa_cpr_adult, haz_gas_leak, fa_fracture,
+  fa_crush_injury, fa_burns, fa_choking, fa_head_injury, safe_reentry,
+  fa_recovery_position, ...).
+- Embedding retrieval (eval config b, laptop-only, never on device):
+  Bedrock Titan Text Embeddings V2 (amazon.titan-embed-text-v2:0),
+  region us-east-2. Verified working 2026-07-16 — no model-access request
+  needed under the current Model catalog system.
+- AWS: personal account 640309151867, IAM user emergency-dev, local profile
+  `emergency` (AWS_PROFILE=emergency ALWAYS — the `default` profile on this
+  machine is a different, shared collaborator account; never bill it).
+- A .claude/skills/update-claude-md skill keeps this file current; doc
+  updates commit together with the code they document.
+
+Open items: Karishma to paste remaining gold-set rows; confirm concrete
+repo tree; confirm manifest stored as both DB table + manifest.json.
+
 ## Who you're working with
 
 Karishma. Bay Area developer. Python, React/React Native, Expo, Streamlit,
