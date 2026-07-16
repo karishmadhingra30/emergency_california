@@ -1,7 +1,7 @@
 {
   "id": "haz_gas_leak",
   "title": "Gas leak after the quake",
-  "scenario": "Smell of gas, rotten-egg odor, or hissing sound from pipes or appliances after an earthquake.",
+  "scenario": "You smell gas or hear hissing after the earthquake. Rotten-egg odor, gas smell, or hissing sound from pipes or appliances in the kitchen or elsewhere.",
   "disaster_type": "earthquake",
   "severity": "critical",
   "escalate_911": true,

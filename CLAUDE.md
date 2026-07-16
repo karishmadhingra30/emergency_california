@@ -7,9 +7,24 @@ made. Save it as CLAUDE.md in the repo root.
 
 ## Status (last updated 2026-07-16)
 
-Stage 0, pre-code. Repo live at github.com/karishmadhingra30/emergency_california
-(SSH). Rubric + 13 gold rows saved in evals/ (rest of rows pending from
-Karishma). No Track A code yet.
+Stage 0 BUILT. Repo live at github.com/karishmadhingra30/emergency_california
+(SSH). Track A complete and verified: deterministic bundle (25 UNVETTED_DRAFT
+entries + 15 seed shelters), offline query CLI, socket-blocked offline test
+passing. Track B built: 40-row gold set (Karishma's 13 verbatim + 27
+extensions), llm.py (anthropic|bedrock via LLM_PROVIDER, cached), Titan
+embeddings (cached), 3 configs, judge, run_evals.py.
+
+Definition-of-done state:
+1. build_bundle ✅ (byte-identical rebuilds)  2. bleeding query ✅ offline
+3. --near shelters ✅  4. run_evals: retrieval-only ✅ (FTS hit@1 100%,
+   hit@3 100%; Titan hit@1 97%, hit@3 100%, n=34) — FULL run blocked on
+   ANTHROPIC_API_KEY in .env  5. README ✅
+
+Retrieval design (device/query.py): stopword filter + cascade
+phrase → AND → coverage-ranked OR (distinct-token count + bigram NEAR bonus,
+bm25 title/scenario/steps 8/5/1 as tiebreak). Content scenarios are
+deliberately keyword-rich; two were enriched to fix real misses (bleeding,
+gas leak) — that is the intended tuning loop.
 
 Decisions confirmed so far:
 - Repo layout: zone-based — device/ (emergency-time, zero network),
@@ -30,8 +45,15 @@ Decisions confirmed so far:
 - A .claude/skills/update-claude-md skill keeps this file current; doc
   updates commit together with the code they document.
 
-Open items: Karishma to paste remaining gold-set rows; confirm concrete
-repo tree; confirm manifest stored as both DB table + manifest.json.
+- Zone tree confirmed; manifest confirmed as both DB table + manifest.json
+  (written from the same dict); gold set final at 40 rows (no more coming).
+- LLM for evals: claude-opus-4-8 on both roles (answer + judge), adaptive
+  thinking, responses cached on (provider, model, prompt hash).
+
+Open items: Karishma to put ANTHROPIC_API_KEY in .env (copy .env.example),
+then `python evals/run_evals.py` for the full 3-config groundedness run
+(the headline ungrounded-rate numbers). ~160 LLM calls first run, free on
+re-runs via cache.
 
 ## Who you're working with
 

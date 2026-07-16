@@ -1,7 +1,7 @@
 {
   "id": "fa_bleeding_control",
   "title": "Severe bleeding \u2014 stop the bleed",
-  "scenario": "Heavy bleeding that will not stop. Blood soaking through cloth, gushing or spurting blood, deep cut or wound after injury or broken glass.",
+  "scenario": "Heavy bleeding that will not stop. Blood everywhere, soaking through cloth, gushing or spurting out of an arm, leg, or wound. Deep cut after injury or broken glass.",
   "disaster_type": "earthquake",
   "severity": "critical",
   "escalate_911": true,
