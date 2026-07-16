@@ -1,0 +1,23 @@
+{
+  "id": "fa_impaled_object",
+  "title": "Object stuck in the body (impaled)",
+  "scenario": "Glass, metal, rebar, or wood sticking out of the body after the earthquake. Impaled object in stomach, chest, or limb.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911.",
+    "Leave the object in place \u2014 it may be plugging the wound.",
+    "Stabilize it: pack bulky cloth or dressings around the object so it cannot shift.",
+    "Control bleeding with firm pressure AROUND the object, never on it.",
+    "Keep the person as still as possible and treat for shock: lying down, kept warm.",
+    "For small splinters just under the skin, ordinary removal is fine \u2014 this guidance is for deeply embedded objects."
+  ],
+  "do_not": [
+    "Never pull a deeply embedded object out \u2014 removal can cause massive bleeding.",
+    "Do not press directly on the object or lean on it."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

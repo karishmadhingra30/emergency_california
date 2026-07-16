@@ -1,0 +1,23 @@
+{
+  "id": "fa_burns",
+  "title": "Burns and scalds",
+  "scenario": "Skin burned by fire, hot metal, boiling water, or steam. Burnt hand on a stove, hot pan, or iron. Red, blistering, or charred skin, scald from hot liquid.",
+  "disaster_type": "earthquake",
+  "severity": "high",
+  "escalate_911": false,
+  "steps": [
+    "Move the person away from the heat source.",
+    "Cool under running water for 20 minutes as soon as possible. Cool the burn, not the person.",
+    "Remove rings, watches, and tight clothing near the burn before it swells \u2014 but leave anything stuck to the skin.",
+    "Cover loosely with a clean, non-fluffy cloth or plastic wrap.",
+    "Call 911 if the burn is larger than the person's palm, on the face, hands, feet, or groin, caused by chemicals or electricity, or the person is a young child or elderly."
+  ],
+  "do_not": [
+    "Do not put ice, butter, creams, oils, or toothpaste on a burn.",
+    "Do not burst blisters.",
+    "Do not pull off clothing stuck to the burn."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

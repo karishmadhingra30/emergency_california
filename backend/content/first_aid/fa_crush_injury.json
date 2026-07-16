@@ -1,0 +1,23 @@
+{
+  "id": "fa_crush_injury",
+  "title": "Person trapped or crushed under debris",
+  "scenario": "Person pinned, stuck, or crushed under a wall, furniture, bookcase, or rubble after collapse. Cannot get out.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911 immediately and tell them a person is trapped.",
+    "If the object is small and can be lifted safely and the person was trapped only briefly, free them carefully.",
+    "If they have been pinned for a long time or the object is heavy, wait for professional rescuers \u2014 releasing a long-crushed limb without medical support can be fatal.",
+    "Control any bleeding you can reach with firm direct pressure.",
+    "Keep the person warm, still, and talking with you. Note how long they have been trapped and tell rescuers.",
+    "Watch for aftershocks and your own safety \u2014 do not become a second victim."
+  ],
+  "do_not": [
+    "Do not yank a person free from heavy debris without medical rescuers present.",
+    "Do not leave them alone if you can safely stay."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

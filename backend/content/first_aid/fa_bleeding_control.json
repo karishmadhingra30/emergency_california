@@ -1,0 +1,24 @@
+{
+  "id": "fa_bleeding_control",
+  "title": "Severe bleeding \u2014 stop the bleed",
+  "scenario": "Heavy bleeding that will not stop. Blood soaking through cloth, gushing or spurting blood, deep cut or wound after injury or broken glass.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911, or have someone else call while you act.",
+    "Apply firm direct pressure on the wound with a clean cloth, shirt, or bandage, using both hands.",
+    "Press hard and keep pressing. Do not lift the cloth to peek at the wound.",
+    "If blood soaks through, add more cloth on top of the old layer and keep pressing.",
+    "If a limb is bleeding heavily and firm pressure is not working, a trained person with a commercial tourniquet may apply it above the wound as a last resort.",
+    "Keep the person lying down and warm until help arrives."
+  ],
+  "do_not": [
+    "Do not peel off a blood-soaked cloth \u2014 add new layers on top.",
+    "Direct pressure comes first; a tourniquet is a trained-user, last-resort tool.",
+    "Do not give the injured person anything to eat or drink."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

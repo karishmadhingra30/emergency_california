@@ -1,0 +1,23 @@
+{
+  "id": "fa_electrical_burn",
+  "title": "Electric shock and electrical burns",
+  "scenario": "Person shocked by damaged wiring, outlet, or appliance. Electrical burn, was thrown, or is still in contact with the source.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Do not touch the person while they may still be in contact with electricity.",
+    "Cut the power: unplug the device or switch off the breaker. If you cannot, call 911 and keep everyone away.",
+    "Once the power is confirmed off, check breathing. If not breathing, call 911 and start CPR.",
+    "Call 911 for any electrical burn \u2014 the visible mark can hide serious internal injury.",
+    "Cool visible burns with running water and cover loosely with a clean cloth.",
+    "Keep the person still and warm until help arrives."
+  ],
+  "do_not": [
+    "Never use water on anything still connected to power.",
+    "Do not move the person unless they are in danger."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

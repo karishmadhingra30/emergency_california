@@ -1,0 +1,23 @@
+{
+  "id": "fa_heat_dehydration",
+  "title": "Dehydration and heat illness",
+  "scenario": "Dizzy, weak, headache, dark urine, very thirsty after time in the sun without water. Heavy sweating, cramps, faintness.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "Move to shade or the coolest place available and stop physical activity.",
+    "Sip water steadily \u2014 do not gulp large amounts at once.",
+    "Loosen clothing and cool the skin with wet cloths on the neck, armpits, and forehead.",
+    "For muscle cramps, gently stretch and continue sipping fluids.",
+    "Call 911 for signs of heat stroke: hot dry or flushed skin, confusion, fainting, seizure, or the person stops sweating \u2014 and cool them aggressively with water while you wait.",
+    "Rest before returning to activity, and drink more than you think you need."
+  ],
+  "do_not": [
+    "Do not give fluids to someone who is confused or losing consciousness.",
+    "No alcohol or heavy caffeine while recovering."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "fa_dust_inhalation",
+  "title": "Breathed in dust or smoke",
+  "scenario": "Coughing, throat and chest irritation after breathing dust from a collapsed building or nearby smoke.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "Move to fresh air away from the dust or smoke.",
+    "Rinse your mouth and nose with clean water; sip water to ease the throat.",
+    "Loosen tight clothing and rest \u2014 sit upright rather than lying flat.",
+    "Cover your nose and mouth with a mask or damp cloth if you must be near dust again.",
+    "Call 911 for trouble breathing, wheezing, chest pain, or bluish lips \u2014 especially in people with asthma, heart, or lung conditions.",
+    "If coughing or irritation persists past a day, seek medical care."
+  ],
+  "do_not": [
+    "Do not return to a heavy-dust area without protection.",
+    "Do not ignore worsening shortness of breath."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

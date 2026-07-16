@@ -1,0 +1,23 @@
+{
+  "id": "haz_downed_lines",
+  "title": "Downed power lines",
+  "scenario": "Power line down on the street, sparking wire on the ground or on a car after the earthquake.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Stay at least 35 feet away \u2014 about the length of a bus. Assume every downed line is live, even if it looks dead.",
+    "Call 911 and report the location.",
+    "Never touch a person or object in contact with the line; electricity can travel through them into you.",
+    "If a line falls on your car while you are inside: stay in the car and call 911. Wait for rescuers.",
+    "Only if the car is on fire and you must get out: jump clear so you never touch the car and the ground at the same time, land with feet together, and shuffle away with small steps.",
+    "Water conducts electricity \u2014 keep far from puddles touching any wire."
+  ],
+  "do_not": [
+    "Do not drive over downed lines.",
+    "Do not try to move a line with a stick, rope, or any object."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

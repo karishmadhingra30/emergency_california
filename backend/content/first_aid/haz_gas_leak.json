@@ -1,0 +1,23 @@
+{
+  "id": "haz_gas_leak",
+  "title": "Gas leak after the quake",
+  "scenario": "Smell of gas, rotten-egg odor, or hissing sound from pipes or appliances after an earthquake.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Get out of the building immediately, taking everyone with you.",
+    "Do not use switches or flames \u2014 no light switches, no lighters, no matches, no candles, nothing electrical on or off.",
+    "Leave the door open as you exit and move well away from the building.",
+    "From a safe distance, call 911 and the gas company.",
+    "Only turn off the gas at the outside meter if you know how and can do it without going back inside danger.",
+    "Do not re-enter until officials say it is safe."
+  ],
+  "do_not": [
+    "Never search for the source of a gas smell.",
+    "Do not start a car in an attached garage if you smell gas."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

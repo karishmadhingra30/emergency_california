@@ -1,0 +1,23 @@
+{
+  "id": "fa_choking",
+  "title": "Choking \u2014 cannot breathe or speak",
+  "scenario": "Person is choking on food or an object. Cannot talk, cough, or breathe; clutching the throat; face turning red or blue.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Ask 'Are you choking?' If they can cough or speak, encourage coughing and stay close.",
+    "If they cannot breathe, cough, or speak: call 911 or have someone call.",
+    "Give 5 firm back blows between the shoulder blades with the heel of your hand.",
+    "Give 5 abdominal thrusts: stand behind them, fist above the navel, pull sharply inward and upward.",
+    "Alternate 5 back blows and 5 thrusts until the object comes out.",
+    "If they collapse, lower them to the ground and start CPR; look in the mouth before breaths and remove the object only if you can see it."
+  ],
+  "do_not": [
+    "Do not offer anything to drink while they are choking.",
+    "Do not sweep the mouth blindly with a finger."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

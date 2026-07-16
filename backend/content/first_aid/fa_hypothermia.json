@@ -1,0 +1,24 @@
+{
+  "id": "fa_hypothermia",
+  "title": "Hypothermia (dangerously cold)",
+  "scenario": "Person exposed to cold or wet overnight, stuck outside. Shivering hard, confused, slurred speech, clumsy, unusually sleepy.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911 \u2014 confusion, slurred speech, or stopped shivering are signs of severe hypothermia.",
+    "Move them gently to a warm, dry place. Handle them carefully; rough movement can be dangerous.",
+    "Remove wet clothing and replace with dry layers.",
+    "Warm the center of the body first: chest, neck, head, and groin, with blankets, dry layers, or skin-to-skin contact under blankets.",
+    "If fully awake and able to swallow, give warm, sweet, non-alcoholic drinks.",
+    "Keep them wrapped and monitored until help arrives, even if they say they feel better."
+  ],
+  "do_not": [
+    "No alcohol or caffeine.",
+    "Do not massage or rub their limbs.",
+    "Do not use direct high heat like scalding water or a heating pad on bare skin."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

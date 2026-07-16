@@ -1,0 +1,23 @@
+{
+  "id": "fa_shock",
+  "title": "Shock (circulatory)",
+  "scenario": "Person is pale, cold, clammy, sweaty, weak, breathing fast, dizzy or confused after an injury, bleeding, or burn.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911 \u2014 shock is life-threatening.",
+    "Treat the obvious cause you can see, such as firm pressure on heavy bleeding.",
+    "Lay the person flat on their back.",
+    "If no leg, spine, or head injury, raise their legs about 12 inches on a bag or cushion.",
+    "Keep them warm: blanket or coats under and over them.",
+    "Loosen tight clothing. Keep them calm and still until help arrives."
+  ],
+  "do_not": [
+    "Nothing to eat or drink, even if they ask.",
+    "Do not raise the legs if a leg, spine, or head injury is suspected."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

@@ -1,0 +1,4 @@
+# EVAL HARNESS ONLY (Track B). The device/ zone is stdlib-only by design —
+# never add a dependency to any emergency-time code path.
+anthropic        # LLM answers + judge (LLM_PROVIDER=anthropic, the default)
+boto3            # Bedrock: Titan embeddings (config b) and LLM_PROVIDER=bedrock

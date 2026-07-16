@@ -8,6 +8,9 @@ venv/
 # Env / secrets
 .env
 .env.*
+!.env.example
+*accessKeys*.csv
+*_credentials*.csv
 
 # Build artifacts (bundles are built, not committed)
 bundle/*.db

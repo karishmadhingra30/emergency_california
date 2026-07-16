@@ -1,0 +1,24 @@
+{
+  "id": "fa_recovery_position",
+  "title": "Unconscious but breathing \u2014 recovery position",
+  "scenario": "Person passed out, fainted, unresponsive or will not wake up, but IS breathing normally.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Call 911.",
+    "Check breathing: look for steady chest movement, listen and feel for breath.",
+    "If breathing is normal and no spinal injury is suspected, roll them onto their side into the recovery position: bottom arm out, top knee bent, head tilted slightly back so the airway stays open.",
+    "Keep their mouth pointed slightly downward so fluids can drain.",
+    "Stay with them and re-check breathing every minute until help arrives.",
+    "If breathing stops or becomes abnormal gasping, roll them onto their back and start CPR."
+  ],
+  "do_not": [
+    "Nothing to eat or drink.",
+    "Do not leave them lying flat on their back unattended \u2014 the tongue or vomit can block the airway.",
+    "Do not move them if a neck or back injury is suspected, unless the airway is at risk."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

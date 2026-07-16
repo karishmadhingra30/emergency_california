@@ -1,0 +1,23 @@
+{
+  "id": "safe_reentry",
+  "title": "Is it safe to go back inside?",
+  "scenario": "After the earthquake, deciding whether to re-enter your house or building. Safe re-entry, going back in for belongings.",
+  "disaster_type": "earthquake",
+  "severity": "high",
+  "escalate_911": false,
+  "steps": [
+    "Stay out until you have looked over the building from outside. Aftershocks can occur without warning and can bring a weakened building down.",
+    "Check for structural damage: large cracks in walls or foundation, leaning walls, a sagging roof or floor, or the building shifted off its foundation. Any of these \u2014 do not enter, and get a professional inspection.",
+    "If you smell gas or hear hissing, stay out and follow the gas leak guidance.",
+    "If the building looks sound, enter briefly and carefully: sturdy shoes, flashlight (not candles), and someone outside who knows you went in.",
+    "Watch for broken glass, fallen objects overhead, and damaged wiring.",
+    "Leave immediately if you hear creaking or feel any shaking."
+  ],
+  "do_not": [
+    "Do not use candles, matches, or lighters inside after a quake.",
+    "Do not turn utilities back on yourself if you suspect damage."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

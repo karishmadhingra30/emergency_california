@@ -1,0 +1,24 @@
+{
+  "id": "haz_water_safety",
+  "title": "Is the water safe to drink?",
+  "scenario": "Drinking water safety after the earthquake. Tap water may be contaminated, broken water mains, boil water advisory.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "After a major quake, assume tap water may be unsafe until officials say otherwise.",
+    "Use bottled water first if you have it.",
+    "If you must use tap water, boil it vigorously for 1 full minute and let it cool.",
+    "If you cannot boil: add 8 drops of plain, unscented household bleach per gallon of clear water, stir, and wait 30 minutes.",
+    "Your water heater tank and toilet TANK (not bowl) hold tens of gallons of usable emergency water.",
+    "Listen for official boil-water notices before returning to normal use."
+  ],
+  "do_not": [
+    "Do not drink water that is dark, smells bad, or has floating material.",
+    "Do not use scented or color-safe bleach for disinfection.",
+    "Do not drink flood water."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

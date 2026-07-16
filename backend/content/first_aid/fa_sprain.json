@@ -1,0 +1,22 @@
+{
+  "id": "fa_sprain",
+  "title": "Sprained ankle or wrist",
+  "scenario": "Twisted ankle or wrist. Pain, swelling, bruising, hard to move the joint after a fall or misstep on debris.",
+  "disaster_type": "earthquake",
+  "severity": "low",
+  "escalate_911": false,
+  "steps": [
+    "Rest: stop using the injured joint.",
+    "Ice: apply a cold pack wrapped in cloth for up to 20 minutes at a time, with breaks.",
+    "Compression: wrap with an elastic bandage, snug but not so tight that it tingles or turns pale.",
+    "Elevation: raise the limb above heart level when sitting or lying.",
+    "Seek medical care if you cannot bear weight, the joint looks deformed, or pain and swelling do not improve \u2014 it could be a fracture."
+  ],
+  "do_not": [
+    "Do not apply a cold pack directly to bare skin.",
+    "Do not keep walking on a joint that cannot take weight."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

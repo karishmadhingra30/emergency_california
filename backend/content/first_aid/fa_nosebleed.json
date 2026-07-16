@@ -1,0 +1,24 @@
+{
+  "id": "fa_nosebleed",
+  "title": "Nosebleed",
+  "scenario": "Nose will not stop bleeding, from dry air, a bump, or after injury.",
+  "disaster_type": "earthquake",
+  "severity": "low",
+  "escalate_911": false,
+  "steps": [
+    "Sit upright and lean forward slightly so blood does not run down the throat.",
+    "Pinch the soft part of the nose, just below the bony bridge, for 10 to 15 minutes without letting go to check.",
+    "Breathe through your mouth. Spit out blood rather than swallowing it.",
+    "A cold pack on the bridge of the nose can help.",
+    "If bleeding continues after 30 minutes of pressure, seek medical care.",
+    "A nosebleed with clear fluid, or one that follows a serious head injury, can signal a skull fracture \u2014 call 911."
+  ],
+  "do_not": [
+    "Do not lie down or tip the head backward.",
+    "Do not blow your nose for several hours after it stops.",
+    "Do not pack tissue deep into the nostril."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

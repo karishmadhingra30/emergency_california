@@ -1,0 +1,23 @@
+{
+  "id": "fa_eye_injury",
+  "title": "Dust or debris in the eye",
+  "scenario": "Dust, grit, or a particle in the eye after collapse or demolition. Eye pain, watering, cannot see clearly.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "Do not rub. Blink several times and let tears work first.",
+    "Flush the eye with clean water for up to 15 minutes: tilt the head so water runs from the nose side outward.",
+    "Pull the upper lid over the lower lid briefly to help sweep the particle out.",
+    "If something is embedded or stuck in the eye: do NOT remove it. Cover both eyes loosely and call 911 or get emergency care.",
+    "For chemical splashes, flush continuously for 15 minutes and seek urgent care.",
+    "If pain, vision changes, or the feeling of something in the eye persists after flushing, seek medical care."
+  ],
+  "do_not": [
+    "Never try to remove an object embedded in the eye.",
+    "Do not press on the eye."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

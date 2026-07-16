@@ -1,0 +1,167 @@
+[
+  {
+    "id": "sh_oak_coliseum",
+    "name": "Oakland Arena & Coliseum Complex",
+    "lat": 37.7503,
+    "lon": -122.2011,
+    "address": "7000 Coliseum Way, Oakland, CA 94621",
+    "type": "shelter",
+    "capacity_note": "Large regional mass-care site; used in past emergencies",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_cow_palace",
+    "name": "Cow Palace",
+    "lat": 37.7066,
+    "lon": -122.4192,
+    "address": "2600 Geneva Ave, Daly City, CA 94014",
+    "type": "shelter",
+    "capacity_note": "Large venue; historic Red Cross shelter site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_moscone",
+    "name": "Moscone Center",
+    "lat": 37.7842,
+    "lon": -122.4016,
+    "address": "747 Howard St, San Francisco, CA 94103",
+    "type": "shelter",
+    "capacity_note": "Large downtown SF venue",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_bill_graham",
+    "name": "Bill Graham Civic Auditorium",
+    "lat": 37.7785,
+    "lon": -122.4177,
+    "address": "99 Grove St, San Francisco, CA 94102",
+    "type": "shelter",
+    "capacity_note": "SF civic venue near City Hall",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_alameda_fair",
+    "name": "Alameda County Fairgrounds",
+    "lat": 37.6604,
+    "lon": -121.888,
+    "address": "4501 Pleasanton Ave, Pleasanton, CA 94566",
+    "type": "shelter",
+    "capacity_note": "County mass-care and large-animal site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_scc_fair",
+    "name": "Santa Clara County Fairgrounds",
+    "lat": 37.3134,
+    "lon": -121.8564,
+    "address": "344 Tully Rd, San Jose, CA 95111",
+    "type": "shelter",
+    "capacity_note": "County mass-care site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_sm_event",
+    "name": "San Mateo County Event Center",
+    "lat": 37.545,
+    "lon": -122.2989,
+    "address": "1346 Saratoga Dr, San Mateo, CA 94403",
+    "type": "shelter",
+    "capacity_note": "County event center; past shelter activations",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_marin_center",
+    "name": "Marin Center Exhibit Hall",
+    "lat": 37.9931,
+    "lon": -122.531,
+    "address": "10 Avenue of the Flags, San Rafael, CA 94903",
+    "type": "shelter",
+    "capacity_note": "Marin County mass-care site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_solano_fair",
+    "name": "Solano County Fairgrounds",
+    "lat": 38.1291,
+    "lon": -122.2323,
+    "address": "900 Fairgrounds Dr, Vallejo, CA 94589",
+    "type": "shelter",
+    "capacity_note": "County fairgrounds; past wildfire shelter",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_sonoma_fair",
+    "name": "Sonoma County Fairgrounds",
+    "lat": 38.4289,
+    "lon": -122.701,
+    "address": "1350 Bennett Valley Rd, Santa Rosa, CA 95404",
+    "type": "shelter",
+    "capacity_note": "County fairgrounds; used in 2017/2019 fires",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "sh_cc_fair",
+    "name": "Contra Costa County Fairgrounds",
+    "lat": 38.0108,
+    "lon": -121.8258,
+    "address": "1201 W 10th St, Antioch, CA 94509",
+    "type": "shelter",
+    "capacity_note": "County fairgrounds mass-care site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "ev_mlk_park_berkeley",
+    "name": "Martin Luther King Jr. Civic Center Park",
+    "lat": 37.8693,
+    "lon": -122.2725,
+    "address": "2151 Martin Luther King Jr Way, Berkeley, CA 94704",
+    "type": "evac_point",
+    "capacity_note": "Open assembly area, downtown Berkeley",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "ev_ogawa_plaza",
+    "name": "Frank Ogawa Plaza",
+    "lat": 37.8055,
+    "lon": -122.2711,
+    "address": "1 Frank H Ogawa Plaza, Oakland, CA 94612",
+    "type": "evac_point",
+    "capacity_note": "Open assembly area, downtown Oakland",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "ev_dolores_park",
+    "name": "Mission Dolores Park",
+    "lat": 37.7596,
+    "lon": -122.4269,
+    "address": "Dolores St & 19th St, San Francisco, CA 94114",
+    "type": "evac_point",
+    "capacity_note": "Large open space; SF gathering site",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  },
+  {
+    "id": "ev_cesar_chavez_park",
+    "name": "Cesar Chavez Park",
+    "lat": 37.871,
+    "lon": -122.316,
+    "address": "11 Spinnaker Way, Berkeley, CA 94710",
+    "type": "evac_point",
+    "capacity_note": "Open waterfront space, Berkeley Marina",
+    "source": "SEED DRAFT from public county OES / Red Cross shelter listings; activation is incident-dependent; coords approximate \u2014 VERIFY before demo",
+    "last_verified": "2026-07-16"
+  }
+]

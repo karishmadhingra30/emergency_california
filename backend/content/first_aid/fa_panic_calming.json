@@ -1,0 +1,23 @@
+{
+  "id": "fa_panic_calming",
+  "title": "Panic attack \u2014 overwhelming fear after the quake",
+  "scenario": "Heart racing, cannot catch breath, chest tight, shaking, feeling of dying or losing control, but no physical injury.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "Sit down somewhere as safe and quiet as possible.",
+    "Slow your breathing: in through the nose for 4 counts, out through the mouth for 6. Repeat for several minutes.",
+    "Ground yourself: name 5 things you can see, 4 you can touch, 3 you can hear.",
+    "Remind yourself: panic peaks and passes, usually within minutes.",
+    "If you are helping someone else: stay calm, speak slowly, and breathe with them.",
+    "Chest pain and shortness of breath can also be a heart attack. If chest pain is crushing, spreads to arm or jaw, or does not ease as breathing slows \u2014 call 911."
+  ],
+  "do_not": [
+    "Do not dismiss chest pain as 'just panic' if it is severe or unfamiliar.",
+    "Do not leave a severely panicking person alone."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

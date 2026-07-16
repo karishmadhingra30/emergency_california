@@ -1,0 +1,25 @@
+{
+  "id": "fa_cpr_adult",
+  "title": "Adult not breathing \u2014 CPR",
+  "scenario": "Adult is unresponsive and not breathing or only gasping. No signs of life after collapse, no pulse, not moving.",
+  "disaster_type": "earthquake",
+  "severity": "critical",
+  "escalate_911": true,
+  "steps": [
+    "Check for response: tap their shoulders and shout.",
+    "Call 911 first \u2014 put the phone on speaker so your hands stay free.",
+    "Lay the person on their back on a firm surface.",
+    "Start chest compressions: place both hands in the center of the chest and push hard and fast, about 2 inches deep, 100 to 120 times per minute.",
+    "Let the chest rise fully between pushes. Do not stop.",
+    "If you are trained, give 2 rescue breaths after every 30 compressions; if not, continue compressions only.",
+    "If an AED is nearby, send someone for it and follow its voice prompts.",
+    "Continue until the person breathes, help takes over, or you are physically unable."
+  ],
+  "do_not": [
+    "Do not delay compressions to look for a pulse for more than a few seconds.",
+    "Do not give anything by mouth."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "fa_seizure",
+  "title": "Seizure",
+  "scenario": "Person shaking or convulsing all over, eyes rolled back, unresponsive, jerking movements.",
+  "disaster_type": "earthquake",
+  "severity": "high",
+  "escalate_911": true,
+  "steps": [
+    "Stay calm and time the seizure from the moment it starts.",
+    "Clear hard or sharp objects away and cushion their head with something soft.",
+    "Loosen anything tight around the neck.",
+    "Do not restrain them; let the seizure run its course.",
+    "When the shaking stops, roll them onto their side into the recovery position and stay with them while they recover.",
+    "Call 911 if the seizure lasts more than 5 minutes, repeats, happens in water, the person is pregnant or injured, has never had a seizure before, or does not wake up afterward."
+  ],
+  "do_not": [
+    "Never put anything in a seizing person's mouth.",
+    "Do not hold them down.",
+    "Do not offer food or drink until fully alert."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "prep_aftershocks",
+  "title": "Aftershocks \u2014 what to expect and do",
+  "scenario": "Ground keeps shaking again after the main earthquake. Repeated tremors, aftershock safety.",
+  "disaster_type": "earthquake",
+  "severity": "medium",
+  "escalate_911": false,
+  "steps": [
+    "Expect aftershocks for days to weeks after a major quake. Most are smaller, but some can cause new damage.",
+    "Each time shaking starts: Drop, Cover, and Hold On. Get under a sturdy table, cover your head and neck, hold on until it stops.",
+    "Stay away from damaged buildings, chimneys, windows, and anything that could fall.",
+    "If you are inside a sound building, stay inside during shaking \u2014 do not run out mid-shake.",
+    "Keep sturdy shoes and a flashlight by your bed.",
+    "Agree on a family meeting point in case an aftershock separates you."
+  ],
+  "do_not": [
+    "Do not re-enter damaged buildings between aftershocks.",
+    "Do not stand near brick walls, chimneys, or glass."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

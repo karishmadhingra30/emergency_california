@@ -1,0 +1,22 @@
+{
+  "id": "fa_fracture",
+  "title": "Broken bone (fracture)",
+  "scenario": "Possible broken arm, leg, wrist, or ankle. Snap felt or heard, limb looks bent or deformed, severe pain, swelling, cannot put weight on it.",
+  "disaster_type": "earthquake",
+  "severity": "high",
+  "escalate_911": false,
+  "steps": [
+    "Keep it still. Do not move the injured limb more than necessary.",
+    "Support the limb in the position you found it, using a rolled towel, magazine splint, or sling, padded with cloth.",
+    "Apply a cold pack wrapped in cloth to reduce swelling \u2014 not directly on skin.",
+    "Call 911 if the limb is badly deformed, bone is visible, the person cannot be moved safely, there is numbness or bluish color, or a head, neck, or back injury is suspected.",
+    "Otherwise get to medical care as soon as it is safe to travel."
+  ],
+  "do_not": [
+    "Do not straighten the limb or push a bone back in.",
+    "Do not move someone with a suspected neck or back injury unless they are in immediate danger."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}

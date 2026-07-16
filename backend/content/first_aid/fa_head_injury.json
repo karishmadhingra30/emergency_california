@@ -1,0 +1,24 @@
+{
+  "id": "fa_head_injury",
+  "title": "Head injury",
+  "scenario": "Hit on the head by falling object or during a fall. Dizzy, confused, headache, vision blurry, bump or bleeding on the scalp.",
+  "disaster_type": "earthquake",
+  "severity": "high",
+  "escalate_911": true,
+  "steps": [
+    "Have the person sit or lie down and keep still.",
+    "Press a clean cloth gently on any scalp bleeding.",
+    "Apply a cold pack wrapped in cloth to the bump.",
+    "Seek medical help \u2014 head injuries can worsen hours later.",
+    "Watch for worsening symptoms: repeated vomiting, growing confusion, unequal pupils, slurred speech, seizure, clear fluid from nose or ears, or hard to wake. Any of these: call 911.",
+    "Keep checking on them for the next 24 hours, including waking them periodically if they sleep."
+  ],
+  "do_not": [
+    "Do not leave a person with a significant head injury alone.",
+    "Do not give alcohol or sedatives.",
+    "Do not assume sleep will fix it \u2014 keep checking on them."
+  ],
+  "source": "UNVETTED DRAFT (AI-assisted, modeled on standard first-aid conventions); replace with clinician-reviewed content",
+  "last_updated": "2026-07-16",
+  "review_status": "UNVETTED_DRAFT"
+}
