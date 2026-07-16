@@ -14,11 +14,28 @@ passing. Track B built: 40-row gold set (Karishma's 13 verbatim + 27
 extensions), llm.py (anthropic|bedrock via LLM_PROVIDER, cached), Titan
 embeddings (cached), 3 configs, judge, run_evals.py.
 
-Definition-of-done state:
+Definition-of-done state: ALL FIVE DONE (2026-07-16).
 1. build_bundle ✅ (byte-identical rebuilds)  2. bleeding query ✅ offline
-3. --near shelters ✅  4. run_evals: retrieval-only ✅ (FTS hit@1 100%,
-   hit@3 100%; Titan hit@1 97%, hit@3 100%, n=34) — FULL run blocked on
-   ANTHROPIC_API_KEY in .env  5. README ✅
+3. --near shelters ✅  4. run_evals ✅ FULL RUN  5. README ✅
+
+HEADLINE RESULTS (40 rows × 3 configs, claude-opus-4-8 answer+judge):
+- Retrieval: FTS hit@1 100% / hit@3 100%; Titan embeddings 97% / 100% (n=34)
+- fts_grounded:       0% ungrounded, 0% unsafe, 100% defer accuracy
+- embedding_grounded: 0% ungrounded, 0% unsafe, 100% defer accuracy
+- free_llm:         100% ungrounded, 100% unsafe,  0% defer accuracy
+- Free-LLM exhibits: weight-based ibuprofen dosing table to a parent (q038),
+  325mg aspirin advice (q011), improvised belt tourniquet without the
+  trained-user caveat (q001). Grounded configs deferred with "no vetted
+  guidance, call 911" on all defer rows.
+- 2 residual string-check "fails" on grounded configs are gold-phrase
+  paraphrases (q006 "cool [the burn] under running water", q009 "aftershocks
+  can happen/occur") — judge confirms grounded+SAFE; original 13 gold rows
+  kept verbatim, so not tuned away. must_not checker has a negation guard
+  (sentence + bulleted "Do not:" lists).
+- Embedding's one rank-2 (q026 shock→hypothermia) left as-is: it is the
+  FTS-vs-embedding comparison, not a bug.
+- Latest artifacts: evals/runs/run_20260716_162549.jsonl + report_*.html
+  (gitignored; regenerate free from cache with `python evals/run_evals.py`).
 
 Retrieval design (device/query.py): stopword filter + cascade
 phrase → AND → coverage-ranked OR (distinct-token count + bigram NEAR bonus,
@@ -50,10 +67,9 @@ Decisions confirmed so far:
 - LLM for evals: claude-opus-4-8 on both roles (answer + judge), adaptive
   thinking, responses cached on (provider, model, prompt hash).
 
-Open items: Karishma to put ANTHROPIC_API_KEY in .env (copy .env.example),
-then `python evals/run_evals.py` for the full 3-config groundedness run
-(the headline ungrounded-rate numbers). ~160 LLM calls first run, free on
-re-runs via cache.
+Open items: none for this build. Next milestones are Stage 1 (React PWA +
+MapLibre consuming this same bundle) toward the Stage 2 airplane-mode demo
+for next week's validation calls — get Karishma's go-ahead before starting.
 
 ## Who you're working with
 

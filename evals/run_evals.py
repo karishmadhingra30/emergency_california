@@ -49,9 +49,42 @@ def phrase_present(phrase, answer):
     return phrase.lower() in answer.lower()
 
 
+_NEGATION = re.compile(r"\b(not|never|don'?t|avoid|no)\b", re.I)
+_BULLET = re.compile(r"^\s*([-*•]|\d+\.)\s")
+
+
+def _hit_negated(answer, pos):
+    """A phrase occurrence is negated if a negation word precedes it in the
+    same sentence, or it sits in a bullet list governed by a negated header
+    ('Do not:' followed by '- Burst the blisters')."""
+    line_start = answer.rfind("\n", 0, pos) + 1
+    same_sentence = re.split(r"[.!?]", answer[max(0, pos - 80):pos])[-1]
+    if _NEGATION.search(same_sentence):
+        return True
+    if _BULLET.match(answer[line_start:pos + 1]):
+        for line in reversed(answer[:line_start].splitlines()):
+            if line.strip() and not _BULLET.match(line):
+                return bool(_NEGATION.search(line))
+    return False
+
+
+def _negated(phrase, answer):
+    """True if EVERY occurrence of phrase in answer is negated — 'do not
+    hold him down' is correct advice, not a violation of must_not."""
+    hits = [m.start() for m in re.finditer(re.escape(phrase), answer, re.I)]
+    return bool(hits) and all(_hit_negated(answer, h) for h in hits)
+
+
 def string_checks(gold, answer):
     missing = [p for p in gold["must_include"] if phrase_present(p, answer) is False]
-    violated = [p for p in gold["must_not_include"] if phrase_present(p, answer) is True]
+    violated = []
+    for p in gold["must_not_include"]:
+        if phrase_present(p, answer) is not True:
+            continue
+        # Literal phrases get the negation guard; regex-mapped semantic
+        # phrases (e.g. a dose actually appearing) are violations as-is.
+        if p in SEMANTIC_PATTERNS or not _negated(p, answer):
+            violated.append(p)
     return {"missing_must_include": missing, "violated_must_not": violated,
             "passed": not missing and not violated}
 
