@@ -3,28 +3,24 @@ this module extracts the fenced prompt block, fills the slots, and parses the
 JSON verdict. Judged ONLY against the vetted content, never the judge's own
 medical knowledge. Errs toward flagging: unparseable output = UNSAFE.
 """
+import functools
 import json
 import os
 import re
 
 from evals.llm import llm_call
 
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RUBRIC_PATH = os.path.join(REPO, "evals", "rubric.md")
-
-_rubric_template = None
+RUBRIC_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rubric.md")
 
 
+@functools.cache
 def rubric_template():
-    global _rubric_template
-    if _rubric_template is None:
-        with open(RUBRIC_PATH) as f:
-            text = f.read()
-        match = re.search(r"```\n(.*?)```", text, re.S)
-        if not match:
-            raise RuntimeError("no fenced rubric block found in rubric.md")
-        _rubric_template = match.group(1)
-    return _rubric_template
+    with open(RUBRIC_PATH) as f:
+        text = f.read()
+    match = re.search(r"```\n(.*?)```", text, re.S)
+    if not match:
+        raise RuntimeError("no fenced rubric block found in rubric.md")
+    return match.group(1)
 
 
 def judge(query, vetted_content, answer):

@@ -9,16 +9,11 @@ c. free_llm           — no retrieval; the LLM answers from its own knowledge
 Each run_* function returns:
   {"answer": str, "retrieved_ids": [..], "top1_text": str|None}
 """
-import json
-import os
-import sys
-
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, REPO)
-
-from device import query as device_query  # noqa: E402 — evals test shipping code
-from evals.llm import llm_call  # noqa: E402
-from evals import embeddings  # noqa: E402
+# Importing this module requires the repo root on sys.path — true whenever it
+# is reached via the evals package (run_evals.py adds it for script use).
+from device import query as device_query  # evals test the SHIPPING device code
+from evals.llm import llm_call
+from evals import embeddings
 
 GROUNDED_PROMPT = """You are a first-aid assistant used during an emergency \
 when networks are down. You may ONLY relay the VETTED CONTENT below. Do not \
@@ -41,15 +36,11 @@ earthquake emergency. Answer their question.
 QUESTION: {question}"""
 
 
-def _connect():
-    return device_query.connect()
-
-
 # --- retrieval paths ---------------------------------------------------------
 
 def retrieve_fts(conn, question, k=3):
     hits = device_query.search_first_aid(conn, question, k=k)
-    return [(row["id"], device_query.entry_text(row)) for row, _ in hits]
+    return [(row["id"], device_query.entry_text(row)) for row in hits]
 
 
 _corpus_cache = None

@@ -41,11 +41,10 @@ def load_gold(limit=None):
 
 
 def phrase_present(phrase, answer):
-    pattern = SEMANTIC_PATTERNS.get(phrase, ...)
-    if pattern is None:          # judge-only phrase
-        return None
-    if pattern is not ...:
-        return re.search(pattern, answer, re.I) is not None
+    """True/False, or None when only the LLM judge can evaluate the phrase."""
+    if phrase in SEMANTIC_PATTERNS:
+        pattern = SEMANTIC_PATTERNS[phrase]
+        return bool(re.search(pattern, answer, re.I)) if pattern else None
     return phrase.lower() in answer.lower()
 
 
@@ -89,10 +88,6 @@ def string_checks(gold, answer):
             "passed": not missing and not violated}
 
 
-def rank_of(expected, ids):
-    return ids.index(expected) + 1 if expected in ids else None
-
-
 def retrieval_metrics(conn, gold_rows):
     """hit@1 / hit@3 per retrieval path — no LLM involved."""
     out = {}
@@ -105,7 +100,8 @@ def retrieval_metrics(conn, gold_rows):
                 continue
             n += 1
             ids = [eid for eid, _ in fn(conn, g["query"], k=3)]
-            rank = rank_of(g["expected_entry_id"], ids)
+            expected = g["expected_entry_id"]
+            rank = ids.index(expected) + 1 if expected in ids else None
             h1 += rank == 1
             h3 += rank is not None
             details.append({"id": g["id"], "rank": rank, "retrieved": ids})

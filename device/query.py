@@ -82,7 +82,7 @@ def search_first_aid(conn, query, k=3):
     for match in candidates:
         rows = conn.execute(sql, (match, k)).fetchall()
         if rows:
-            return [(r, r["score"]) for r in rows]
+            return rows
 
     # OR fallback, ranked by how many DISTINCT query tokens the entry matches,
     # plus a bonus for adjacent query-word pairs appearing near each other
@@ -100,7 +100,7 @@ def search_first_aid(conn, query, k=3):
         return []
     rows = conn.execute(sql, (" OR ".join(tokens), 25)).fetchall()
     ranked = sorted(rows, key=lambda r: (-coverage.get(r["rowid"], 0), r["score"]))
-    return [(r, r["score"]) for r in ranked[:k]]
+    return ranked[:k]
 
 
 def haversine_km(lat1, lon1, lat2, lon2):
@@ -118,10 +118,13 @@ def nearest_shelters(conn, lat, lon, k=5):
     return scored[:k]
 
 
+def _steps_and_donts(row):
+    return json.loads(row["steps_json"]), json.loads(row["do_not_json"])
+
+
 def entry_text(row):
     """Flat text of one entry — what a grounded LLM is allowed to answer from."""
-    steps = json.loads(row["steps_json"])
-    do_not = json.loads(row["do_not_json"])
+    steps, do_not = _steps_and_donts(row)
     lines = [f"TITLE: {row['title']}", f"APPLIES TO: {row['scenario']}"]
     if row["escalate_911"]:
         lines.append("ESCALATION: Call 911.")
@@ -133,8 +136,7 @@ def entry_text(row):
 
 
 def render_entry(row, manifest):
-    steps = json.loads(row["steps_json"])
-    do_not = json.loads(row["do_not_json"])
+    steps, do_not = _steps_and_donts(row)
     out = [f"== {row['title']} ==",
            f"   severity: {row['severity']}"
            + ("   >>> CALL 911 <<<" if row["escalate_911"] else "")]
@@ -152,7 +154,7 @@ def main():
     p.add_argument("query", nargs="?", help="first-aid question")
     p.add_argument("--near", metavar="LAT,LON", help="nearest shelters to a point")
     p.add_argument("--db", default=DEFAULT_DB)
-    p.add_argument("-k", type=int, default=3, help="max results")
+    p.add_argument("-k", type=int, help="max results (default: 3 entries, 5 shelters)")
     args = p.parse_args()
 
     conn = connect(args.db)
@@ -180,15 +182,14 @@ def main():
               "(the app will use the GPS blue dot).")
         return
 
-    hits = search_first_aid(conn, args.query, k=args.k)
+    hits = search_first_aid(conn, args.query, k=args.k or 3)
     if not hits:
         print("No vetted guidance found for that in the offline bundle. "
               "If someone may be in danger, call 911.")
         return
-    print(render_entry(hits[0][0], manifest))
+    print(render_entry(hits[0], manifest))
     if len(hits) > 1:
-        also = ", ".join(r["id"] for r, _ in hits[1:])
-        print(f"\nrelated: {also}")
+        print("\nrelated: " + ", ".join(r["id"] for r in hits[1:]))
 
 
 if __name__ == "__main__":

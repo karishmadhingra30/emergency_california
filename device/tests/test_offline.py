@@ -51,7 +51,7 @@ def main():
     for q, want in expected.items():
         hits = query.search_first_aid(conn, q, k=3)
         assert hits, f"no hits for {q!r}"
-        got = hits[0][0]["id"]
+        got = hits[0]["id"]
         assert got == want, f"{q!r}: expected {want}, got {got}"
 
     # Nearest-shelter query, offline
@@ -61,7 +61,7 @@ def main():
     assert near[0][0] < 1.0, "downtown Berkeley point should be <1km from MLK park"
 
     # Rendered output carries the freshness timestamp and draft warning
-    text = query.render_entry(query.search_first_aid(conn, "burned my hand", k=1)[0][0], manifest)
+    text = query.render_entry(query.search_first_aid(conn, "burned my hand", k=1)[0], manifest)
     assert "UNVETTED_DRAFT" in text and manifest["first_aid_freshness"] in text
 
     print("OFFLINE TEST PASSED — full query path ran with all sockets blocked")
