@@ -16,6 +16,10 @@ venv/
 bundle/*.db
 bundle/*.pmtiles
 dist/
+pwa/node_modules/
+pwa/.next/
+pwa/.sites-runtime/
+pwa/.wrangler/
 
 # Eval outputs and LLM response cache
 evals/runs/

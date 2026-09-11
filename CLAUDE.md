@@ -7,7 +7,12 @@ made. Save it as CLAUDE.md in the repo root.
 
 ## Status (last updated 2026-09-11)
 
-Stage 0 COMPLETE. Stage 1 NOT STARTED (awaiting Karishma's go-ahead).
+Stage 0 COMPLETE. Stage 1 IN PROGRESS. Karishma approved the React PWA on
+2026-09-11; the demo is in two days. Search, local shelters, GPS control,
+service-worker caching, and the Python↔JS retrieval parity test are built.
+The remaining Stage 1 input is a reviewed Bay Area PMTiles basemap: none is
+present in the repo, so the map deliberately renders only local shelter points
+and GPS over a neutral background until a pack is supplied.
 Repo live at github.com/karishmadhingra30/emergency_california (SSH push).
 Track A complete and verified: deterministic bundle (25 UNVETTED_DRAFT
 entries + 15 seed shelters), offline query CLI, socket-blocked offline test
@@ -96,11 +101,14 @@ Environment facts (verified, not decisions):
   commit+push was once blocked by the permission classifier).
 
 Open items:
-- Confirm validation-call timing with Karishma. This doc was written
-  assuming calls "next week" as of 2026-07-16; it is now 2026-09-11, so
-  the Stage 2 demo deadline is unknown.
-- Stage 1 go-ahead, then the first Stage 1 decision: sql.js (load bundle.db
-  directly in-browser) vs copy into IndexedDB. Present options, don't pick.
+- Validation/demo date: confirmed for two days after 2026-09-11.
+- Stage 1 browser storage decision: confirmed custom FTS5 sql.js-compatible
+  build (`fts5-sql-bundle`) opens `bundle.db` unchanged. Standard sql.js was
+  rejected because its shipped build does not include FTS5. This dependency is
+  browser-only; backend/ and device/ remain stdlib-only.
+- PWA retrieval parity: confirmed. `pwa/scripts/retrieval-parity.mjs` uses the
+  browser port and must match Python's top-1 result for all 34 answerable gold
+  rows before a demo or release.
 - Before any demo: shelter coordinates are approximate seed data — verify.
 
 ## Who you're working with
@@ -164,6 +172,11 @@ DEVICE (runs offline during the emergency):
 - Bundle contents: one SQLite file (first_aid entries, shelters table,
   FTS5 index) + PMTiles map pack + media files + manifest.json
   (region, bundle version, per-dataset freshness timestamps)
+- Stage 1 PWA: `pwa/` opens the unchanged SQLite bundle in browser memory with
+  the FTS5 runtime, ports the Python phrase → AND → coverage-ranked OR cascade,
+  and registers a cache-only production service worker. It never has a network
+  fallback for bundle, WASM, or PMTiles assets. The build writes every app-shell
+  asset into the worker's precache list.
 - Query path: keyword intent router (no ML) → FTS5 search for first aid,
   or GPS + shelters table for locations → render from local data, always
   showing the manifest freshness timestamp
@@ -275,7 +288,9 @@ All five DONE — see Status. Paths below are post-restructure (run from repo ro
 
 ## What comes after (do not build yet, but plan for)
 
-- Stage 1/2: React PWA + MapLibre + PMTiles consuming this same bundle.
+- Stage 1/2: React PWA + MapLibre + PMTiles consuming this same bundle. The PWA
+  exists; add a reviewed Bay Area PMTiles basemap to `pwa/public/bundle/` and
+  verify it in airplane mode before calling Stage 1 complete.
   Design the bundle so the PWA reads it unchanged (sql.js or copy into
   IndexedDB — decide later).
 - Bundle versioning + delta updates for weak connections.

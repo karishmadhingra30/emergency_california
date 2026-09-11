@@ -1,4 +1,4 @@
-# Emergency California — offline-first disaster response (v1, Stage 0)
+# Emergency California — offline-first disaster response (v1, Stage 1 in progress)
 
 > **⚠️ NOT MEDICAL ADVICE.** Every first-aid entry in this repo is
 > `review_status: UNVETTED_DRAFT` — AI-assisted schema-filler content that has
@@ -25,6 +25,9 @@ and (in later stages) an offline map with a live GPS blue dot.
 - `bundle/` — build output (gitignored): `bundle.db` + `manifest.json`
 - `device/` — emergency-time zone: `query.py` (zero-network retrieval + CLI)
 - `evals/` — Track B groundedness harness (dev-time only, never on device)
+- `pwa/` — Stage 1 React emergency surface. It opens the unchanged SQLite
+  bundle with an FTS5-enabled browser SQLite runtime, runs the same retrieval
+  cascade, and caches app-owned assets locally with a service worker.
 
 ## Quickstart
 
@@ -34,10 +37,16 @@ python device/query.py "cant stop the bleeding"
 python device/query.py --near 37.87,-122.27    # nearest shelters
 python device/tests/test_offline.py            # full path with sockets blocked
 python evals/run_evals.py                      # Track B (needs ANTHROPIC_API_KEY)
+cd pwa && npm run test:parity && npm run build # browser retrieval + PWA build
 ```
 
 `device/` uses only the Python standard library. `requirements.txt` exists
 solely for the eval harness. Copy `.env.example` to `.env` for eval runs.
+
+The PWA uses only its packaged `bundle/bundle.db`, manifest, browser GPS, and
+app-owned cached files on its emergency-time path. `pwa/public/bundle/` does
+not yet contain a reviewed Bay Area PMTiles map pack, so the current map shows
+local shelter points and GPS over a neutral background until that input lands.
 
 ## Why the eval harness exists
 
