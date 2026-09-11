@@ -10,6 +10,7 @@ made. Save it as CLAUDE.md in the repo root.
 Stage 0 COMPLETE. Stage 1 IN PROGRESS. Karishma approved the React PWA on
 2026-09-11; the demo is in two days. Search, local shelters, GPS control,
 service-worker caching, and the Python↔JS retrieval parity test are built.
+The confirmed PWA product name is EarthQuakePrep.
 The remaining Stage 1 input is a reviewed Bay Area PMTiles basemap: none is
 present in the repo, so the map deliberately renders only local shelter points
 and GPS over a neutral background until a pack is supplied.

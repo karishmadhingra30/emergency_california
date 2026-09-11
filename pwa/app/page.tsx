@@ -67,7 +67,7 @@ export default function Home() {
   const donts = result ? listValue(result, "do_not_json") : [];
 
   return <main>
-    <header className="topbar"><div className="brand"><span className="brand-mark"><Cross size={20} strokeWidth={3} /></span><span>Bay Ready</span></div><span className="offline-state"><span className="status-dot" />{status}</span></header>
+    <header className="topbar"><div className="brand"><span className="brand-mark"><Cross size={20} strokeWidth={3} /></span><span>EarthQuakePrep</span></div><span className="offline-state"><span className="status-dot" />{status}</span></header>
     <div className="emergency-banner"><ShieldAlert size={20} /><span>{DISCLAIMER}</span><strong>Call 911 in an emergency</strong></div>
     <section className="workspace" aria-label="Emergency response tools">
       <section className="guidance-panel"><p className="eyebrow">OFFLINE FIRST AID</p><h1>What happened?</h1>

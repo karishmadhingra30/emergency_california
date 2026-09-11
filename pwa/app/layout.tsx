@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bay Ready — offline emergency response",
+  title: "EarthQuakePrep — offline emergency response",
   description: "Offline Bay Area earthquake guidance and shelter locations.",
   other: {
     "codex-preview": "development",
