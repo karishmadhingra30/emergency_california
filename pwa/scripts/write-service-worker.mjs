@@ -16,6 +16,12 @@ const shell = (await files(client.pathname))
   .filter((file) => file !== workerPath.pathname)
   .map((file) => `/${relative(client.pathname, file)}`)
   .filter((asset) => !asset.startsWith("/.") && asset !== "/_headers");
-const source = await readFile(new URL("public/sw.js", root), "utf8");
-await writeFile(workerPath, source.replace("const APP_SHELL = [];", `const APP_SHELL = ${JSON.stringify(shell)};`));
+const [source, manifestText] = await Promise.all([
+  readFile(new URL("public/sw.js", root), "utf8"),
+  readFile(new URL("public/bundle/manifest.json", root), "utf8"),
+]);
+const manifest = JSON.parse(manifestText);
+await writeFile(workerPath, source
+  .replace("const APP_SHELL = [];", `const APP_SHELL = ${JSON.stringify(shell)};`)
+  .replace("__BUNDLE_VERSION__", manifest.bundle_version));
 console.log(`Service worker precaches ${shell.length} app-shell assets.`);

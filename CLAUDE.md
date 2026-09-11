@@ -10,10 +10,10 @@ made. Save it as CLAUDE.md in the repo root.
 Stage 0 COMPLETE. Stage 1 IN PROGRESS. Karishma approved the React PWA on
 2026-09-11; the demo is in two days. Search, local shelters, GPS control,
 service-worker caching, and the Python↔JS retrieval parity test are built.
-The confirmed PWA product name is EarthQuakePrep.
-The remaining Stage 1 input is a reviewed Bay Area PMTiles basemap: none is
-present in the repo, so the map deliberately renders only local shelter points
-and GPS over a neutral background until a pack is supplied.
+The confirmed PWA product name is EarthQuakePrep. A 2026-09-11 cleanup removed
+unused starter dependencies and the incomplete MapLibre/PMTiles surface. The
+PWA keeps GPS-sorted shelters; offline basemap work is deferred until a reviewed
+Bay Area PMTiles pack and local map style are ready.
 Repo live at github.com/karishmadhingra30/emergency_california (SSH push).
 Track A complete and verified: deterministic bundle (25 UNVETTED_DRAFT
 entries + 15 seed shelters), offline query CLI, socket-blocked offline test
@@ -110,6 +110,9 @@ Open items:
 - PWA retrieval parity: confirmed. `pwa/scripts/retrieval-parity.mjs` uses the
   browser port and must match Python's top-1 result for all 34 answerable gold
   rows before a demo or release.
+- PWA cleanup: confirmed. Keep the existing framework until after the demo;
+  remove unused UI/database/chart dependencies now. `npm run build` rebuilds
+  the canonical backend bundle and copies its exact DB + manifest into the PWA.
 - Before any demo: shelter coordinates are approximate seed data — verify.
 
 ## Who you're working with
@@ -175,9 +178,10 @@ DEVICE (runs offline during the emergency):
   (region, bundle version, per-dataset freshness timestamps)
 - Stage 1 PWA: `pwa/` opens the unchanged SQLite bundle in browser memory with
   the FTS5 runtime, ports the Python phrase → AND → coverage-ranked OR cascade,
-  and registers a cache-only production service worker. It never has a network
-  fallback for bundle, WASM, or PMTiles assets. The build writes every app-shell
-  asset into the worker's precache list.
+  and registers a cache-only production service worker. `npm run build` rebuilds
+  and copies the canonical bundle before writing every app-shell asset into the
+  precache. Its cache name includes the bundle version; it never has a network
+  fallback for emergency-time assets.
 - Query path: keyword intent router (no ML) → FTS5 search for first aid,
   or GPS + shelters table for locations → render from local data, always
   showing the manifest freshness timestamp
@@ -290,8 +294,9 @@ All five DONE — see Status. Paths below are post-restructure (run from repo ro
 ## What comes after (do not build yet, but plan for)
 
 - Stage 1/2: React PWA + MapLibre + PMTiles consuming this same bundle. The PWA
-  exists; add a reviewed Bay Area PMTiles basemap to `pwa/public/bundle/` and
-  verify it in airplane mode before calling Stage 1 complete.
+  exists; reintroduce MapLibre/PMTiles only with a reviewed Bay Area map pack
+  and a local style, then verify it in airplane mode before calling Stage 1
+  complete.
   Design the bundle so the PWA reads it unchanged (sql.js or copy into
   IndexedDB — decide later).
 - Bundle versioning + delta updates for weak connections.

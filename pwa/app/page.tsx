@@ -2,10 +2,8 @@
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import { Cross, LocateFixed, MapPin, Search, ShieldAlert } from "lucide-react";
-import { OfflineMap } from "@/components/offline-map";
 import { findFirstAid, findShelters, loadManifest, type FirstAidEntry, type Manifest, type Shelter } from "@/lib/bundle";
 
-type Position = { latitude: number; longitude: number };
 const DISCLAIMER = "NOT MEDICAL ADVICE — unvetted draft content; does not replace 911 or professional care. If someone is in danger, call 911.";
 type ModelContext = { registerTool: (tool: { name: string; title: string; description: string; inputSchema: object; annotations: object; execute: (input: unknown) => Promise<object> }, options: { signal: AbortSignal }) => void | Promise<void> };
 
@@ -19,9 +17,7 @@ export default function Home() {
   const [related, setRelated] = useState<FirstAidEntry[]>([]);
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [shelters, setShelters] = useState<Shelter[]>([]);
-  const [position, setPosition] = useState<Position | null>(null);
   const [status, setStatus] = useState("Loading your offline emergency bundle…");
-  const [mapError, setMapError] = useState("");
 
   useEffect(() => {
     Promise.all([loadManifest(), findShelters(37.87, -122.27)]).then(([loadedManifest, nearbyShelters]) => {
@@ -58,7 +54,7 @@ export default function Home() {
     setStatus("Finding your location on this device…");
     navigator.geolocation.getCurrentPosition(async ({ coords }) => {
       const nextPosition = { latitude: coords.latitude, longitude: coords.longitude };
-      setPosition(nextPosition); setShelters(await findShelters(nextPosition.latitude, nextPosition.longitude)); setStatus("Location updated on this device");
+      setShelters(await findShelters(nextPosition.latitude, nextPosition.longitude)); setStatus("Location updated on this device");
     }, () => setStatus("Location was not available. You can still search the local bundle."), { enableHighAccuracy: true, maximumAge: 15000, timeout: 10000 });
   }, []);
 
@@ -76,7 +72,7 @@ export default function Home() {
           {result ? <><p className="scenario">{stringValue(result, "scenario")}</p><ol>{steps.map((step) => <li key={step}>{step}</li>)}</ol><div className="avoid"><strong>Avoid</strong><ul>{donts.map((item) => <li key={item}>{item}</li>)}</ul></div><p className="metadata">{stringValue(result, "review_status")} · Content as of {manifest?.first_aid_freshness || "—"}</p></> : <p className="empty-copy">Search locally stored emergency guidance. Guidance is draft content and must never replace calling 911.</p>}
         </article>{related.length > 0 && <p className="related">Also found: {related.map((entry) => stringValue(entry, "id")).join(", ")}</p>}</section>
       <section className="map-panel"><div className="map-heading"><div><p className="eyebrow">NEAREST LOCAL LOCATIONS</p><h2>Shelters & evacuation points</h2></div><button className="location-button" onClick={useLocation}><LocateFixed size={18} /> Use my location</button></div>
-        <div className="map-frame"><OfflineMap shelters={shelters} position={position} onMapError={setMapError} /><div className="map-note">{mapError || "Map base pack: awaiting Bay Area PMTiles. Shelter points and GPS use local data."}</div></div>
+        <p className="map-deferred">Offline basemap is intentionally deferred until a reviewed Bay Area PMTiles pack and local style are available. Nearby locations still use this device’s GPS and the local bundle.</p>
         <div className="shelter-list">{shelters.map((shelter) => <article className="shelter" key={String(shelter.id)}><MapPin size={19} /><div><h3>{String(shelter.name)}</h3><p>{shelter.distanceKm.toFixed(1)} km · {String(shelter.type).replace("_", " ")}<br />{String(shelter.address)}</p></div></article>)}</div><p className="metadata">Shelter data as of {manifest?.shelters_freshness || "—"} · approximate seed locations; verify before relying on them.</p>
       </section>
     </section>

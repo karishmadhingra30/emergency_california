@@ -43,10 +43,10 @@ cd pwa && npm run test:parity && npm run build # browser retrieval + PWA build
 `device/` uses only the Python standard library. `requirements.txt` exists
 solely for the eval harness. Copy `.env.example` to `.env` for eval runs.
 
-The PWA uses only its packaged `bundle/bundle.db`, manifest, browser GPS, and
-app-owned cached files on its emergency-time path. `pwa/public/bundle/` does
-not yet contain a reviewed Bay Area PMTiles map pack, so the current map shows
-local shelter points and GPS over a neutral background until that input lands.
+The PWA build recreates the canonical bundle and copies the exact database and
+manifest into its static assets. It uses only those packaged files, browser GPS,
+and app-owned cached files on its emergency-time path. An offline basemap is
+deferred until a reviewed Bay Area PMTiles pack and local map style are ready.
 
 ## Why the eval harness exists
 
