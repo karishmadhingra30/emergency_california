@@ -5,14 +5,29 @@ is the complete context. Read it fully before proposing anything. From here on,
 planning happens with you, so maintain and update this file as decisions are
 made. Save it as CLAUDE.md in the repo root.
 
-## Status (last updated 2026-07-16)
+## Status (last updated 2026-09-11)
 
-Stage 0 BUILT. Repo live at github.com/karishmadhingra30/emergency_california
-(SSH). Track A complete and verified: deterministic bundle (25 UNVETTED_DRAFT
+Stage 0 COMPLETE. Stage 1 NOT STARTED (awaiting Karishma's go-ahead).
+Repo live at github.com/karishmadhingra30/emergency_california (SSH push).
+Track A complete and verified: deterministic bundle (25 UNVETTED_DRAFT
 entries + 15 seed shelters), offline query CLI, socket-blocked offline test
 passing. Track B built: 40-row gold set (Karishma's 13 verbatim + 27
 extensions), llm.py (anthropic|bedrock via LLM_PROVIDER, cached), Titan
 embeddings (cached), 3 configs, judge, run_evals.py.
+
+Post-build quality passes (both behavior-preserving, full test battery
+re-run after each with identical results):
+- Code review (653c11a): dead code removed; search_first_aid() now returns
+  sqlite3.Row list (no score tuples); fixed --near defaulting to 3 shelters
+  instead of 5.
+- Comment pass (26e1b7f): every module opens with "HOW THIS FILE FITS";
+  every function states purpose + callers. Keep this standard for new code.
+
+Verify everything (from repo root, ~1 min, $0 — evals replay from cache):
+  python backend/build_bundle.py && python device/tests/test_offline.py
+  python device/query.py "cant stop the bleeding"
+  python device/query.py --near 37.87,-122.27
+  python evals/run_evals.py
 
 Definition-of-done state: ALL FIVE DONE (2026-07-16).
 1. build_bundle ✅ (byte-identical rebuilds)  2. bleeding query ✅ offline
@@ -34,8 +49,10 @@ HEADLINE RESULTS (40 rows × 3 configs, claude-opus-4-8 answer+judge):
   (sentence + bulleted "Do not:" lists).
 - Embedding's one rank-2 (q026 shock→hypothermia) left as-is: it is the
   FTS-vs-embedding comparison, not a bug.
-- Latest artifacts: evals/runs/run_20260716_162549.jsonl + report_*.html
+- Latest artifacts: evals/runs/run_20260723_164224.jsonl + report_*.html
   (gitignored; regenerate free from cache with `python evals/run_evals.py`).
+  The cache (evals/.llm_cache/, ~240 files, gitignored) exists only on
+  Karishma's laptop — a fresh clone re-pays the first run (~$2–5).
 
 Retrieval design (device/query.py): stopword filter + cascade
 phrase → AND → coverage-ranked OR (distinct-token count + bigram NEAR bonus,
@@ -46,7 +63,8 @@ gas leak) — that is the intended tuning loop.
 Decisions confirmed so far:
 - Repo layout: zone-based — device/ (emergency-time, zero network),
   backend/ (calm-time bundle builder + content), sync/ (boundary contract),
-  evals/ (Track B, dev-time only). Concrete tree pending final confirmation.
+  evals/ (Track B, dev-time only). evals/ imports device/query.py so eval
+  numbers describe shipping code. sync/ is a contract README only (no code).
 - First-aid content: one JSON file per entry, in backend/content/first_aid/.
   Entry IDs must match the gold set's expected_entry_id values
   (fa_bleeding_control, fa_cpr_adult, haz_gas_leak, fa_fracture,
@@ -67,9 +85,23 @@ Decisions confirmed so far:
 - LLM for evals: claude-opus-4-8 on both roles (answer + judge), adaptive
   thinking, responses cached on (provider, model, prompt hash).
 
-Open items: none for this build. Next milestones are Stage 1 (React PWA +
-MapLibre consuming this same bundle) toward the Stage 2 airplane-mode demo
-for next week's validation calls — get Karishma's go-ahead before starting.
+Environment facts (verified, not decisions):
+- Python: /opt/anaconda3/bin/python3 (3.13). Eval deps installed: anthropic,
+  boto3. device/ and backend/ are stdlib-only — keep them that way.
+- ANTHROPIC_API_KEY lives in .env (gitignored; template in .env.example).
+  No `ant` CLI installed.
+- LLM_PROVIDER=bedrock is UNTESTED: Claude models return AccessDenied on the
+  personal AWS account. Only Titan embeddings are enabled there.
+- Push: run `git commit` and `git push` as separate commands (a combined
+  commit+push was once blocked by the permission classifier).
+
+Open items:
+- Confirm validation-call timing with Karishma. This doc was written
+  assuming calls "next week" as of 2026-07-16; it is now 2026-09-11, so
+  the Stage 2 demo deadline is unknown.
+- Stage 1 go-ahead, then the first Stage 1 decision: sql.js (load bundle.db
+  directly in-browser) vs copy into IndexedDB. Present options, don't pick.
+- Before any demo: shelter coordinates are approximate seed data — verify.
 
 ## Who you're working with
 
@@ -82,6 +114,14 @@ when steps are fixed. Prior art: she built a flood-response app for
 Uttarakhand, India (offline chatbot, shelters, first aid) that couldn't
 deploy due to infrastructure constraints. This project adapts that idea to
 California.
+
+Working rules she set explicitly:
+- ASK before any decision on a project area or design choice — present
+  options with a recommendation, then wait. Don't decide and report.
+- Explain unfamiliar concepts plainly when asked (e.g. embeddings, manifest)
+  before asking her to choose.
+- Code standard: elegant, minimal, no dead code; comments readable by a
+  beginner SWE, each function stating its purpose and its callers.
 
 ## The product (settled strategy — do not relitigate)
 
@@ -222,11 +262,13 @@ leak past it.
 
 ## Definition of done for this build
 
-1. `python build_bundle.py` produces bundle.db + manifest from content files
-2. `python query.py "cant stop the bleeding"` returns the right entry,
+All five DONE — see Status. Paths below are post-restructure (run from repo root).
+
+1. `python backend/build_bundle.py` produces bundle.db + manifest from content files
+2. `python device/query.py "cant stop the bleeding"` returns the right entry,
    offline, with freshness timestamp
-3. `python query.py --near 37.87,-122.27` returns nearest shelters
-4. `python run_evals.py` executes the gold set across all three configs and
+3. `python device/query.py --near 37.87,-122.27` returns nearest shelters
+4. `python evals/run_evals.py` executes the gold set across all three configs and
    emits the metrics table + ungrounded-rate chart
 5. README explains the two-zone architecture in one paragraph and states
    the content-vetting caveat prominently
